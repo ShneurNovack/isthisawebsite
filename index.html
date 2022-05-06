@@ -3,6 +3,16 @@
 </head>
 
 <div id="main-box">
+<!-- jQuery lib-->
+<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+ $(document).ready(function() {
+  $("#option1").click(function(event) {
+   $("#main-box").load('https://shneurnovack.github.io/isthisawebsite/question1.html #optionsNsuch');
+  });
+ });
+</script>
+
   <div id="optionsNsuch">
 <div class="typewriter">
   <h1>Is This a Website?</h1>
@@ -10,8 +20,8 @@
 
   <div>
 <div id="choice" class="choice">
-  <a id="choice1" href="url">Yes</a>
-  <a id="choice1" href="url">No</a>
+  <a id="option1" class="choice1" href="#">Yes</a>
+  <a class="choice1" href="#">No</a>
 </div>
   </div>
   </div>
@@ -91,7 +101,7 @@ h1 {
 	color: #fff !important;
 }
 
-#choice1 {
+.choice1 {
 	color: #fff;
 	text-decoration: none;
 	border: solid 2px #fff;
@@ -103,7 +113,7 @@ h1 {
 	height: 23px;
 }
 
-#choice1:hover {
+.choice1:hover {
   color: #000;
   transition: 0.5s;
   transform: scale(1.1);
@@ -153,17 +163,17 @@ a {
 	animation-duration: 4.3s;
 }
 
-#choice1::before {  
+.choice1::before {  
   transform: scaleX(0);
   transform-origin: bottom right;
 }
 
-#choice1:hover::before {
+.choice1:hover::before {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
 
-#choice1::before {
+.choice1::before {
   content: " ";
   display: block;
   position: absolute;
@@ -176,7 +186,7 @@ a {
 	animation-duration: 4.5s;
 }
 
-#choice1 {
+.choice1 {
   position: relative;
 }
 
