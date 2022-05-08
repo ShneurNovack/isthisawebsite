@@ -1,0 +1,562 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script type="text/javascript">
+    <!--
+    if (screen.width <= 699) {
+      document.location = "mobileno.html";
+    }
+    //
+    -->
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<div id="textb">
+  <p id="text">Control the blue box with the arrow keys, dont touch anything grey</p>
+  <div id="state">You Lose!
+    <button type="button" onClick="refreshPage()">Try Again</button>
+  </div>
+</div>
+<div id="box"></div>
+<div id="ob1" class="ob1"></div>
+<div id="ob2" class="ob2"></div>
+<div id="ob3" class="ob3"></div>
+<div id="ob4" class="ob4"></div>
+<div id="ob5" class="ob5">Get the blue box here</div>
+<div id="win">You win!
+  <button type="button" onClick="refreshPage()">Play Again</button>
+</div>
+<div id="dark"></div>
+<div id="borderTop" class="borderTop"></div>
+<div id="border" class="borderBottom"></div>
+<div id="borderLeft" class="borderLeft"></div>
+<div id="borderRight" class="borderRight"></div>
+
+<script>
+  function refreshPage() {
+    window.location.reload();
+  }
+</script>
+
+<style>
+  body {
+    background: #ececec;
+}
+  .borderRight {
+  background: #ccc;
+  height: 100%;
+  width: 10px;
+  position: absolute;
+  right: 0px;
+  z-index: 30;
+  display: flex;
+}
+.borderLeft {
+  background: #ccc;
+  height: 100%;
+  width: 10px;
+  position: absolute;
+  left: 0px;
+  z-index: 30;
+  display: flex;
+}
+.borderBottom {
+  background: #ccc;
+  height: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  z-index: 30;
+  display: flex;
+}
+.borderTop {
+  background: #ccc;
+  height: 10px;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  z-index: 30;
+  display: flex;
+  left: 0px;
+}
+  body {
+  overflow: hidden;
+}
+#dark {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: #000000ab;
+  z-index: 50;
+  display: none;
+}
+#win {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  height: 100px;
+  background-color: #47cf73;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 50px;
+  display: none;
+  z-index: 100;
+  flex-direction: column;
+}
+.ob5 {
+  background: #d0ffcc;
+  height: 100px;
+  width: 50px;
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
+  width: 100%;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  box-shadow: rgb(50 50 93 / 25%) 0px 30px 60px -12px inset, rgb(0 0 0 / 30%) 0px 18px 36px -18px inset;
+}
+.ob4 {
+  background: #ccc;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  bottom: 20%;
+  z-index: 1;
+  width: 50%;
+  right: 0px;
+}
+.ob3 {
+  background: #ccc;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  bottom: 40%;
+  z-index: 1;
+  width: 50%;
+}
+.ob1 {
+  background: #ccc;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 20%;
+  z-index: 2;
+  animation-name: ob1;
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.ob2 {
+  background: #ccc;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 35%;
+  z-index: 2;
+  animation-name: ob2;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#box {
+  background: #47a3cf;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 50;
+  left: 50%;
+  z-index: 3;
+}
+p#text {
+  background: #ebebeb;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  margin: auto !important;
+  max-width: 306px;
+  font-size: 16px;
+  font-family: system-ui;
+  font-weight: 500;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  box-shadow: rgb(50 50 93 / 25%) 0px 13px 27px -5px, rgb(0 0 0 / 30%) 0px 8px 16px -8px;
+}
+#state {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  height: 100px;
+  background-color: #ff3c41;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 50px;
+  display: none;
+  z-index: 100;
+  flex-direction: column;
+}
+  div#ob2 {
+    box-shadow: rgb(0 0 0 / 17%) 0px -23px 25px 0px inset, rgb(0 0 0 / 15%) 0px -36px 30px 0px inset, rgb(0 0 0 / 10%) 0px -79px 40px 0px inset, rgb(0 0 0 / 6%) 0px 2px 1px, rgb(0 0 0 / 9%) 0px 4px 2px, rgb(0 0 0 / 9%) 0px 8px 4px, rgb(0 0 0 / 9%) 0px 16px 8px, rgb(0 0 0 / 9%) 0px 32px 16px;
+}
+div#ob1 {
+    box-shadow: rgb(0 0 0 / 17%) 0px -23px 25px 0px inset, rgb(0 0 0 / 15%) 0px -36px 30px 0px inset, rgb(0 0 0 / 10%) 0px -79px 40px 0px inset, rgb(0 0 0 / 6%) 0px 2px 1px, rgb(0 0 0 / 9%) 0px 4px 2px, rgb(0 0 0 / 9%) 0px 8px 4px, rgb(0 0 0 / 9%) 0px 16px 8px, rgb(0 0 0 / 9%) 0px 32px 16px;
+}
+div#ob3 {
+    box-shadow: rgb(0 0 0 / 17%) 0px -23px 25px 0px inset, rgb(0 0 0 / 15%) 0px -36px 30px 0px inset, rgb(0 0 0 / 10%) 0px -79px 40px 0px inset, rgb(0 0 0 / 6%) 0px 2px 1px, rgb(0 0 0 / 9%) 0px 4px 2px, rgb(0 0 0 / 9%) 0px 8px 4px, rgb(0 0 0 / 9%) 0px 16px 8px, rgb(0 0 0 / 9%) 0px 32px 16px;
+}
+div#ob4 {
+    box-shadow: rgb(0 0 0 / 17%) 0px -23px 25px 0px inset, rgb(0 0 0 / 15%) 0px -36px 30px 0px inset, rgb(0 0 0 / 10%) 0px -79px 40px 0px inset, rgb(0 0 0 / 6%) 0px 2px 1px, rgb(0 0 0 / 9%) 0px 4px 2px, rgb(0 0 0 / 9%) 0px 8px 4px, rgb(0 0 0 / 9%) 0px 16px 8px, rgb(0 0 0 / 9%) 0px 32px 16px;
+}
+  div#borderRight {
+    box-shadow: rgb(0 0 0 / 17%) 0px -23px 25px 0px inset, rgb(0 0 0 / 15%) 0px -36px 30px 0px inset, rgb(0 0 0 / 10%) 0px -79px 40px 0px inset, rgb(0 0 0 / 6%) 0px 2px 1px, rgb(0 0 0 / 9%) 0px 4px 2px, rgb(0 0 0 / 9%) 0px 8px 4px, rgb(0 0 0 / 9%) 0px 16px 8px, rgb(0 0 0 / 9%) 0px 32px 16px;
+}
+div#borderTop {
+    box-shadow: rgb(0 0 0 / 17%) 0px -23px 25px 0px inset, rgb(0 0 0 / 15%) 0px -36px 30px 0px inset, rgb(0 0 0 / 10%) 0px -79px 40px 0px inset, rgb(0 0 0 / 6%) 0px 2px 1px, rgb(0 0 0 / 9%) 0px 4px 2px, rgb(0 0 0 / 9%) 0px 8px 4px, rgb(0 0 0 / 9%) 0px 16px 8px, rgb(0 0 0 / 9%) 0px 32px 16px;
+}
+div#borderLeft {
+    box-shadow: rgb(0 0 0 / 17%) 0px -23px 25px 0px inset, rgb(0 0 0 / 15%) 0px -36px 30px 0px inset, rgb(0 0 0 / 10%) 0px -79px 40px 0px inset, rgb(0 0 0 / 6%) 0px 2px 1px, rgb(0 0 0 / 9%) 0px 4px 2px, rgb(0 0 0 / 9%) 0px 8px 4px, rgb(0 0 0 / 9%) 0px 16px 8px, rgb(0 0 0 / 9%) 0px 32px 16px;
+}
+div#border {
+    box-shadow: rgb(0 0 0 / 17%) 0px -23px 25px 0px inset, rgb(0 0 0 / 15%) 0px -36px 30px 0px inset, rgb(0 0 0 / 10%) 0px -79px 40px 0px inset, rgb(0 0 0 / 6%) 0px 2px 1px, rgb(0 0 0 / 9%) 0px 4px 2px, rgb(0 0 0 / 9%) 0px 8px 4px, rgb(0 0 0 / 9%) 0px 16px 8px, rgb(0 0 0 / 9%) 0px 32px 16px;
+}
+div#box {
+    box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
+}
+@keyframes ob1 {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: 95.5%;
+  }
+}
+
+@keyframes ob2 {
+  0% {
+    right: 0px;
+    width: 0px;
+  }
+  100% {
+    right: 0px;
+    width: 100%;
+  }
+}
+  body {
+    box-shadow: rgb(50 50 93 / 25%) 0px 30px 60px -12px inset, rgb(0 0 0 / 30%) -2px 0px 20px 8px inset;
+}
+</style>
+
+<script>
+  var pressed = false;
+$(document).keydown(function(e) {
+    if(!pressed){ 
+        width = $(this).width();
+        height = $(this).height();
+        switch (e.which) {
+            case 37:
+                $('#box').stop().animate({
+                    left: '-=' + width
+                }, 1000); //left arrow key
+                break;
+            case 38:
+                $('#box').stop().animate({
+                    top: '-=' + width
+                }, 1000); //up arrow key
+                break;
+             case 39:
+                $('#box').stop().animate({
+                    left: '+=' + width
+                }, 1000); //right arrow key
+                break;
+             case 40:
+                $('#box').stop().animate({
+                    top: '+=' + width
+                }, 1000); //bottom arrow key
+                break;
+       }
+    }
+    pressed = true;
+}).keyup(function(){
+    $('#box').stop();
+    pressed = false;
+});
+
+  function collision($ob1, $box) {
+      var x1 = $ob1.offset().left;
+      var y1 = $ob1.offset().top;
+      var h1 = $ob1.outerHeight(true);
+      var w1 = $ob1.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $box.offset().left;
+      var y2 = $box.offset().top;
+      var h2 = $box.outerHeight(true);
+      var w2 = $box.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+  }
+
+  setInterval(() => {
+      if (collision($('#ob1'),$('#box'))){
+          var state =document.getElementById('state');
+            if (collision($('#ob1'),$('#box'))) {
+    state.style.display = 'flex';
+    dark.style.display = 'flex';
+    box.style.display = 'none';
+   }
+   else {
+    state.style.display == 'none';
+   } 
+  }
+    });
+
+  function collision($ob2, $box) {
+      var x1 = $ob2.offset().left;
+      var y1 = $ob2.offset().top;
+      var h1 = $ob2.outerHeight(true);
+      var w1 = $ob2.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $box.offset().left;
+      var y2 = $box.offset().top;
+      var h2 = $box.outerHeight(true);
+      var w2 = $box.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+  }
+
+  setInterval(() => {
+      if (collision($('#ob2'),$('#box'))){
+          var state =document.getElementById('state');
+            if (collision($('#ob2'),$('#box'))) {
+    state.style.display = 'flex';
+    dark.style.display = 'flex';
+    box.style.display = 'none';
+   }
+   else {
+    state.style.display == 'none';
+   } 
+  }
+    });
+
+  function collision($ob3, $box) {
+      var x1 = $ob3.offset().left;
+      var y1 = $ob3.offset().top;
+      var h1 = $ob3.outerHeight(true);
+      var w1 = $ob3.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $box.offset().left;
+      var y2 = $box.offset().top;
+      var h2 = $box.outerHeight(true);
+      var w2 = $box.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+  }
+
+  setInterval(() => {
+      if (collision($('#ob3'),$('#box'))){
+          var state =document.getElementById('state');
+            if (collision($('#ob3'),$('#box'))) {
+    state.style.display = 'flex';
+    box.style.display = 'none';
+    dark.style.display = 'flex';
+   }
+   else {
+    state.style.display == 'none';
+   } 
+  }
+    });
+
+  function collision($ob4, $box) {
+      var x1 = $ob4.offset().left;
+      var y1 = $ob4.offset().top;
+      var h1 = $ob4.outerHeight(true);
+      var w1 = $ob4.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $box.offset().left;
+      var y2 = $box.offset().top;
+      var h2 = $box.outerHeight(true);
+      var w2 = $box.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+  }
+
+  setInterval(() => {
+      if (collision($('#ob4'),$('#box'))){
+          var state =document.getElementById('state');
+            if (collision($('#ob4'),$('#box'))) {
+    state.style.display = 'flex';
+    box.style.display = 'none';
+    dark.style.display = 'flex';
+   }
+   else {
+    state.style.display == 'none';
+   } 
+  }
+    });
+
+  function collision($ob5, $box) {
+      var x1 = $ob5.offset().left;
+      var y1 = $ob5.offset().top;
+      var h1 = $ob5.outerHeight(true);
+      var w1 = $ob5.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $box.offset().left;
+      var y2 = $box.offset().top;
+      var h2 = $box.outerHeight(true);
+      var w2 = $box.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+  }
+
+  setInterval(() => {
+      if (collision($('#ob5'),$('#box'))){
+          var state =document.getElementById('state');
+            if (collision($('#ob5'),$('#box'))) {
+    win.style.display = 'flex';
+    dark.style.display = 'flex';
+    box.style.display = 'none';
+   }
+   else {
+    win.style.display == 'none';
+   } 
+  }
+    });
+  
+    function collision($borderTop, $box) {
+      var x1 = $borderTop.offset().left;
+      var y1 = $borderTop.offset().top;
+      var h1 = $borderTop.outerHeight(true);
+      var w1 = $borderTop.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $box.offset().left;
+      var y2 = $box.offset().top;
+      var h2 = $box.outerHeight(true);
+      var w2 = $box.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+  }
+
+  setInterval(() => {
+      if (collision($('#borderTop'),$('#box'))){
+          var state =document.getElementById('state');
+            if (collision($('#borderTop'),$('#box'))) {
+    state.style.display = 'flex';
+    dark.style.display = 'flex';
+    box.style.display = 'none';
+   }
+   else {
+    win.style.display == 'none';
+   } 
+  }
+    });
+  
+      function collision($borderLeft, $box) {
+      var x1 = $borderLeft.offset().left;
+      var y1 = $borderLeft.offset().top;
+      var h1 = $borderLeft.outerHeight(true);
+      var w1 = $borderLeft.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $box.offset().left;
+      var y2 = $box.offset().top;
+      var h2 = $box.outerHeight(true);
+      var w2 = $box.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+  }
+
+  setInterval(() => {
+      if (collision($('#borderLeft'),$('#box'))){
+          var state =document.getElementById('state');
+            if (collision($('#borderLeft'),$('#box'))) {
+    state.style.display = 'flex';
+    dark.style.display = 'flex';
+    box.style.display = 'none';
+   }
+   else {
+    win.style.display == 'none';
+   } 
+  }
+    });
+  
+        function collision($borderRight, $box) {
+      var x1 = $borderRight.offset().left;
+      var y1 = $borderRight.offset().top;
+      var h1 = $borderRight.outerHeight(true);
+      var w1 = $borderRight.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $box.offset().left;
+      var y2 = $box.offset().top;
+      var h2 = $box.outerHeight(true);
+      var w2 = $box.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+  }
+
+  setInterval(() => {
+      if (collision($('#borderRight'),$('#box'))){
+          var state =document.getElementById('state');
+            if (collision($('#borderRight'),$('#box'))) {
+    state.style.display = 'flex';
+    dark.style.display = 'flex';
+    box.style.display = 'none';
+   }
+   else {
+    win.style.display == 'none';
+   } 
+  }
+    });
+</script>
