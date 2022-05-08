@@ -1,0 +1,205 @@
+<head>
+	<title>Is This A Website?</title>
+</head>
+
+<div id="main-box">
+<!-- jQuery lib-->
+<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+ $(document).ready(function() {
+  $("#option1").click(function(event) {
+   $("#main-box").load('https://shneurnovack.github.io/isthisawebsite/question1.html #optionsNsuch');
+  });
+ });
+</script>
+
+  <div id="optionsNsuch">
+<div class="typewriter">
+  <h1>Sounds fun! What type of game?</h1>
+</div>
+
+  <div>
+<div id="choice" class="choice">
+  <a id="option1" class="choice1">An obstacle game</a>
+  <a class="choice1">A clicker</a>
+</div>
+  </div>
+
+<style>
+body {
+	background: #000;
+	display: flex;
+	justify-content: center;
+	margin: 0!important;
+}
+
+div#main-box {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice {
+	color: #fff;
+	font-family: monospace;
+	overflow: hidden;
+	white-space: nowrap;
+	margin: 0 auto;
+	letter-spacing: .15em;
+}
+
+.typewriter h1 {
+	color: #fff;
+	font-family: monospace;
+	overflow: hidden;
+	border-right: .15em solid orange;
+	white-space: nowrap;
+	margin: 0 auto;
+	letter-spacing: .15em;
+	animation:
+		typing 3s steps(30, end),
+		blink-caret .9s step-end infinite;
+}
+
+@keyframes typing {
+	from {
+		width: 0
+	}
+
+	to {
+		width: 100%
+	}
+}
+
+@keyframes blink-caret {
+
+	from,
+	to {
+		border-color: transparent
+	}
+
+	50% {
+		border-color: #fff
+	}
+}
+
+
+div#choice {
+	display: flex;
+	margin-top: 44px;
+	color: #fff !important;
+	justify-content: space-around;
+	height: 50px;
+	align-items: center;
+}
+
+h1 {
+	text-align: center;
+	color: #fff !important;
+}
+
+.choice1 {
+	color: #fff;
+	text-decoration: none;
+	border: solid 2px #fff;
+	padding: 5px;
+	width: 80px !important;
+	font-size: 20px;
+	font-family: monospace;
+	text-align: center;
+	height: 23px;
+	cursor: pointer;
+}
+
+.choice1:hover {
+  color: #000;
+  transition: 0.5s;
+  transform: scale(1.1);
+
+}
+
+@keyframes choice {
+	0% {
+		color: #000;
+		border-color: #000;
+    background: #000;
+
+	}
+
+	88% {
+		color: #000;
+		border-color: #000;
+
+	}
+
+	90% {
+		color: #fff;
+		border-color: #fff;
+	}
+
+	91% {
+		color: #000;
+		border-color: #000;
+	}
+  
+  92% {
+		color: #000;
+		border-color: #000;
+	}
+
+	93% {
+		color: #fff;
+    border-color: #fff;
+    background: #000;
+
+
+	}
+}
+
+a {
+	animation-name: choice;
+	animation-duration: 4.3s;
+}
+
+.choice1::before {  
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.choice1:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.choice1::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: #fff;
+  z-index: -1;
+  transition: transform .3s ease;
+  animation-name: choice;
+	animation-duration: 4.5s;
+}
+
+.choice1 {
+  position: relative;
+}
+
+html {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+@media (orientation: landscape) {
+  body {
+    grid-auto-flow: column;
+  }
+}
+</style>
+	    </div>
+</div>
