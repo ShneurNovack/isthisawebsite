@@ -12,8 +12,205 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<div id="textb">
-  <p id="text">Control the blue box with the arrow keys, dont touch anything grey</p>
+
+
+  <div id="optionsNsuch">
+<div class="typewriter">
+  <h1>Move using your arrow keys</h1>
+</div>
+
+  <div>
+<div id="choice" class="choice">
+  <a id="option1" class="choice1">Okay</a>
+  <a class="choice1">No</a>
+</div>
+  </div>
+
+<style>
+
+.choice {
+	color: #fff;
+	font-family: monospace;
+	overflow: hidden;
+	white-space: nowrap;
+	margin: 0 auto;
+	letter-spacing: .15em;
+}
+
+.typewriter h1 {
+	color: #fff;
+	font-family: monospace;
+	overflow: hidden;
+	border-right: .15em solid #fff;
+	white-space: nowrap;
+	margin: 0 auto;
+	letter-spacing: .15em;
+	animation:
+		typing 3s steps(30, end),
+		blink-caret .9s step-end infinite;
+  font-size: 20px;
+  width: 360px;
+}
+
+@keyframes typing {
+	from {
+		width: 0
+	}
+
+	to {
+		width: 100%
+	}
+}
+
+@keyframes blink-caret {
+
+	from,
+	to {
+		border-color: transparent
+	}
+
+	50% {
+		border-color: #fff
+	}
+}
+
+
+div#choice {
+	display: flex;
+	margin-top: 22px;
+	color: #fff !important;
+	justify-content: space-around;
+	height: 50px;
+	align-items: center;
+  width: 250px;
+}
+
+h1 {
+	text-align: center;
+	color: #fff !important;
+}
+
+.choice1 {
+	color: #fff;
+	text-decoration: none;
+	border: solid 2px #fff;
+	padding: 5px;
+	width: 60px !important;
+	font-size: 15px;
+	font-family: monospace;
+	text-align: center;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.choice1:hover {
+  color: #000;
+  transition: 0.5s;
+  transform: scale(1.1);
+
+}
+  
+@keyframes choice {
+	0% {
+		color: #ffffff00;
+		border-color: #ffffff00;
+    background: #ffffff00;
+
+	}
+
+	88% {
+		color: #ffffff00;
+		border-color: #ffffff00;
+
+	}
+
+	90% {
+		color: #fff;
+		border-color: #fff;
+	}
+
+	91% {
+		color: #ffffff00;
+		border-color: #ffffff00;
+	}
+  
+  92% {
+		color: #ffffff00;
+		border-color: #ffffff00;
+	}
+
+	93% {
+		color: #fff;
+    border-color: #fff;
+    background: #ffffff00;
+
+
+	}
+}
+
+a {
+	animation-name: choice;
+	animation-duration: 4.3s;
+}
+
+.choice1::before {  
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.choice1:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.choice1::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: #fff;
+  z-index: -1;
+  transition: transform .3s ease;
+  animation-name: choice;
+	animation-duration: 4.5s;
+}
+
+.choice1 {
+  position: relative;
+}
+
+html {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+@media (orientation: landscape) {
+  body {
+    grid-auto-flow: column;
+  }
+}
+  
+  #optionsNsuch {
+    position: absolute;
+    background: #000000a8;
+    width: 500px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    left: 5px;
+    top: 30px;
+    z-index: 50;
+    transform: scale(0.8);
+    animation-name: choice;
+  	animation-duration: 1s;
+  }
+</style>
+	    </div>
+
+
   <div id="state">You Lose!
     <button type="button" onClick="refreshPage()">Try Again</button>
   </div>
@@ -41,7 +238,7 @@
 
 <style>
   body {
-    background: #ececec;
+    background: #fff;
 }
   .borderRight {
   background: #ccc;
