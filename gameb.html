@@ -1,5 +1,17 @@
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<div id="skin-css">
+</div>
+
+<!-- jQuery lib-->
+<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+ $(document).ready(function() {
+  $("#option1").click(function(event1) {
+   $("#skin-css").load('gamebskins.html #mario-css');
+  });
+ });
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script type="text/javascript">
     <!--
@@ -11,17 +23,16 @@
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
 
 
   <div id="optionsNsuch">
 <div class="typewriter">
-  <h1>Move using your arrow keys</h1>
+  <h1>What should your character be?</h1>
 </div>
 
   <div>
 <div id="choice" class="choice">
-  <a id="option1" class="choice1">Okay</a>
+  <a id="option1" class="choice1">Mario</a>
   <a class="choice1">No</a>
 </div>
   </div>
